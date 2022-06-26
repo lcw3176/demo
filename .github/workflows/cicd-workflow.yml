@@ -64,4 +64,4 @@ jobs:
           port: ${{ secrets.PORT }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            nohup java -jar /app/demo.jar 2>> /dev/null >> /dev/null &
+            nohup java -jar /app/demo.jar
