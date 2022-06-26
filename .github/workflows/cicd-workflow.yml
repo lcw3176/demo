@@ -28,9 +28,10 @@ jobs:
       - name: 'Stop App'
         uses: appleboy/ssh-action@master
         with:
-          host: ${{secrets.HOST}}
-          username: ${{secrets.USERNAME}}
-          key: ${{secrets.KEY}}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
           script: |
             pid=`ps aux | grep "[d]emo.jar" | awk '{print $2}'`
             if [ "$pid" == "" ]; then
@@ -43,9 +44,10 @@ jobs:
       - name: 'Push JAR'
         uses: appleboy/scp-action@master
         with:
-          host: ${{secrets.HOST}}
-          username: ${{secrets.USERNAME}}
-          key: ${{secrets.KEY}}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
           source: "build/libs/demo.jar"
           target: "app"
           strip_components: 2
@@ -53,8 +55,9 @@ jobs:
       - name: 'Start App'
         uses: appleboy/ssh-action@master
         with:
-          host: ${{secrets.HOST}}
-          username: ${{secrets.USERNAME}}
-          key: ${{secrets.KEY}}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
           script: |
             nohup java -jar /app/demo.jar 2>> /dev/null >> /dev/null &
