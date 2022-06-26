@@ -31,6 +31,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
+          key_path: ${{ secrets.KEY_PATH }}
           port: ${{ secrets.PORT }}
           script: |
             pid=`ps aux | grep "[d]emo.jar" | awk '{print $2}'`
@@ -47,6 +48,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
+          key_path: ${{ secrets.KEY_PATH }}
           port: ${{ secrets.PORT }}
           source: "build/libs/demo.jar"
           target: "app"
@@ -58,6 +60,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
+          key_path: ${{ secrets.KEY_PATH }}
           port: ${{ secrets.PORT }}
           script: |
             nohup java -jar /app/demo.jar 2>> /dev/null >> /dev/null &
