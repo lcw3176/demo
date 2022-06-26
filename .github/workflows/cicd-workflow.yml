@@ -31,6 +31,8 @@ jobs:
           host: ${{secrets.HOST}}
           username: ${{secrets.USERNAME}}
           password: ${{secrets.PASSWORD}}
+          fingerprint: ${{secrets.FINGER_PRINT}}
+          passphrase: ${{secrets.PASSPHRASE}}
           script: |
             pid=`ps aux | grep "[d]emo.jar" | awk '{print $2}'`
             if [ "$pid" == "" ]; then
@@ -46,6 +48,8 @@ jobs:
           host: ${{secrets.HOST}}
           username: ${{secrets.USERNAME}}
           password: ${{secrets.PASSWORD}}
+          fingerprint: ${{secrets.FINGER_PRINT}}
+          passphrase: ${{secrets.PASSPHRASE}}
           source: "build/libs/demo.jar"
           target: "app"
           strip_components: 2
@@ -56,5 +60,7 @@ jobs:
           host: ${{secrets.HOST}}
           username: ${{secrets.USERNAME}}
           password: ${{secrets.PASSWORD}}
+          fingerprint: ${{secrets.FINGER_PRINT}}
+          passphrase: ${{secrets.PASSPHRASE}}
           script: |
             nohup java -jar /app/demo.jar 2>> /dev/null >> /dev/null &
