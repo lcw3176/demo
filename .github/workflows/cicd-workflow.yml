@@ -32,6 +32,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
+          passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             pid=`ps aux | grep "[d]emo.jar" | awk '{print $2}'`
             if [ "$pid" == "" ]; then
@@ -48,6 +49,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
+          passphrase: ${{ secrets.PASSPHRASE }}
           source: "build/libs/demo.jar"
           target: "app"
           strip_components: 2
@@ -59,5 +61,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
+          passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             nohup java -jar /app/demo.jar 2>> /dev/null >> /dev/null &
