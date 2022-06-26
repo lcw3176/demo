@@ -30,7 +30,7 @@ jobs:
         with:
           host: ${{secrets.HOST}}
           username: ${{secrets.USERNAME}}
-          key: &{{secrets.KEY}}
+          key: ${{secrets.KEY}}
           script: |
             pid=`ps aux | grep "[d]emo.jar" | awk '{print $2}'`
             if [ "$pid" == "" ]; then
@@ -45,7 +45,7 @@ jobs:
         with:
           host: ${{secrets.HOST}}
           username: ${{secrets.USERNAME}}
-          key: &{{secrets.KEY}}
+          key: ${{secrets.KEY}}
           source: "build/libs/demo.jar"
           target: "app"
           strip_components: 2
@@ -55,6 +55,6 @@ jobs:
         with:
           host: ${{secrets.HOST}}
           username: ${{secrets.USERNAME}}
-          key: &{{secrets.KEY}}
+          key: ${{secrets.KEY}}
           script: |
             nohup java -jar /app/demo.jar 2>> /dev/null >> /dev/null &
